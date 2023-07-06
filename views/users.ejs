@@ -1,0 +1,96 @@
+<%- include('./partials/head'); %>  
+<title>Users</title> 
+<style>
+    body{
+        background-color: rgb(11, 75, 53);
+    }
+   h1{
+    text-align: center;
+    color: aliceblue;
+    /* text-decoration: underline; */
+   }
+   table{
+    background-color: aliceblue;
+    margin: auto;
+    padding: .8rem;
+    border-radius: 5px;
+   }
+   td,th,.add ,td > button{
+    padding: .5rem;
+    margin: .3rem;
+    background: #abd3e6;
+    border-radius: 5px;
+   }
+   td.delete{
+    padding: 0;
+   }
+   td > button{
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+   }
+   a{
+    text-decoration: none;
+    color: white
+   }
+   .update,.add{
+    background-color: rgb(56, 129, 238);
+    color: aliceblue;
+   }
+   .delete{
+    background-color: rgb(214, 66, 55);
+    color: aliceblue;
+   }
+   .add{
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
+   }
+</style>
+<body>
+   <h1>Our users</h1>
+   <a href="/add" class="add">ADD USERS</a>
+   <table class="table">
+    <tr>
+        <th>First Name</th>
+        <th>Username</th>
+        <th>Email Address</th>
+        <th></th>
+        <th></th>
+    </tr>
+     <% users?.forEach(function(result) { %>
+    <tr>
+        <td><%= result.fName %></td>
+        <td><%= result.username %></td>
+        <td><%= result.email %></td>
+        <td class="update"><a href="/update/<%=result.id %>">Update</a></td> 
+        <td class="delete" ><button id="<%=result.id %>">Delete</button></td>
+    </tr>
+    <%});%>
+   </table>
+   <script>
+    window.addEventListener('load',()=>{
+      const btns = document.querySelectorAll('button')
+     btns.forEach(btn =>{
+        btn.addEventListener('click', (event) => {
+            const btn = event.target;
+            const id = btn.getAttribute('id');
+            confirmed = window.confirm(`Are you sure you want to delete the user id :${id}?`)
+            if(confirmed === false) { return window.location.reload(true)}
+            else if (confirmed === true){
+            fetch(`/delete/${id}`,{ method: 'DELETE'})
+            .then(response => {
+                if(response.status == 200){
+                  window.location.reload(true)
+               }
+            })
+            }
+           
+        }
+     )})  
+    })
+     
+   </script>
+</body>
+</html>

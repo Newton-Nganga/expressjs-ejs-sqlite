@@ -1,0 +1,18 @@
+<!-- include the head.ejs from views/partials -->
+<%- include('./partials/head'); %>  
+
+<!-- include the form-styling.ejs from views/partials -->
+<%- include('./partials/form-styling'); %>  
+
+    <h1>Update User</h1>
+    <form method="post" >
+        <!-- include the form-fields.ejs from views/partials -->
+        <!-- <%- include('./partials/form-fields'); %>  -->
+        <input  type="text" name="fName"  placeholder="your First Name" value="<%= user ? user.fName : ''%>"/>
+        <input type="text"  name="username"  placeholder="your Username" value="<%= user ? user.username : ''%>"/>
+        <input  type="email" name="email" placeholder="Enter your email" value="<%= user ? user.email : ''%>"/>
+
+        <button type="submit" >Update User</button> 
+    </form>
+</body>
+</html>
