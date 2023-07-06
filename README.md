@@ -3,10 +3,10 @@ A simple startup project configuration using express js as the server, ejs for t
 
 
 ## Preliquisites
-Requirements
-👉: node version 18.16.x
-👉: npm package manager is used in this case
-👉: sqlite3 chrome viewer extension  
+Requirements  
+👉: node version 18.16.x  
+👉: npm package manager is used in this case  
+👉: sqlite3 chrome viewer extension    
 
 ## Usage and Installation
 1 Clone this repo
