@@ -117,5 +117,5 @@ module.exports = router;
 
 
 ## Conributions
-This project is enterly for use in starting a development server,Its open to contribution.  
+This project is entirely for use in starting a development server,Its open to contribution.  
 Clone the repo and Boom! 🤯: 💥: 💥:  You can now mess up things .
